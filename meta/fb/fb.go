@@ -5,10 +5,11 @@ import (
 )
 
 type IFacebook interface {
-	meta.IMeta
+	
 }
 
 type fbService struct {
+	meta.Meta
 }
 
 /*func NewFacebook() IFacebook {

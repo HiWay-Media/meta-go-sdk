@@ -6,7 +6,7 @@ import (
 )
 
 // Base interface
-type IMeta interface {
+/*type IMeta interface {
 	//
 	HealthCheck() error
 	IsDebug() bool
@@ -14,9 +14,10 @@ type IMeta interface {
 	SetAccessToken(token string)
 	GetAccessToken() string
 	//
-}
+}*/
 
-type meta struct {
+// Base Meta struct 
+type Meta struct {
 	restClient   *resty.Client
 	debug        bool
 	clientKey    string
