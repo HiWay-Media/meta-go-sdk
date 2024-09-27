@@ -16,7 +16,7 @@ import (
 	//
 }*/
 
-// Base Meta struct 
+// Base Meta struct
 type Meta struct {
 	restClient   *resty.Client
 	debug        bool
@@ -26,11 +26,11 @@ type Meta struct {
 	OAuth2Config *oauth2.Config
 }
 
-/*func NewMeta(clientKey, clientSecret string, debug bool) IMeta {
-	return &meta{
+func NewMeta(clientKey, clientSecret string, debug bool) *Meta {
+	return &Meta{
 		restClient:   resty.New(),
 		debug:        debug,
 		clientKey:    clientKey,
 		clientSecret: clientSecret,
 	}
-}*/
+}

@@ -5,8 +5,8 @@ import (
 )
 
 type IInstagram interface {
-	meta.IMeta
 }
 
 type igService struct {
+	meta.Meta
 }

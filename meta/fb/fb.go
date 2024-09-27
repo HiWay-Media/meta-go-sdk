@@ -5,13 +5,14 @@ import (
 )
 
 type IFacebook interface {
-	
 }
 
 type fbService struct {
-	meta.Meta
+	*meta.Meta
 }
 
-/*func NewFacebook() IFacebook {
-	return &fbService{}
-}*/
+func NewFacebook(clientKey, clientSecret string, debug bool) IFacebook {
+	return &fbService{
+		Meta: meta.NewMeta(clientKey, clientSecret, debug),
+	}
+}
