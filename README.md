@@ -8,13 +8,13 @@ A Go SDK for interacting with Meta's (Facebook, Instagram) APIs. This SDK simpli
 - Easy authentication and request handling
 - Simplified methods for Facebook and Instagram features
 
-### Installation
+### Installation
 
 ```bash
 
 go get github.com/hiway-media/meta-go-sdk
 ```
-### Usage
+### Usage
 
 ```go
 import "github.com/hiway-media/meta-go-sdk"
