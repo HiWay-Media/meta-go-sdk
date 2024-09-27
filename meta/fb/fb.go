@@ -1,13 +1,16 @@
 package fb
 
 import (
-    "github.com/HiWay-Media/meta-go-sdk/meta"
+	"github.com/HiWay-Media/meta-go-sdk/meta"
 )
 
-type IFacebook interface{
-    meta.IMeta 
+type IFacebook interface {
+	meta.IMeta
 }
 
 type fbService struct {
-
 }
+
+/*func NewFacebook() IFacebook {
+	return &fbService{}
+}*/
