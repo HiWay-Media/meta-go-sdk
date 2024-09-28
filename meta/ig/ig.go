@@ -18,3 +18,22 @@ type igService struct {
 	accessToken  string
 	OAuth2Config *oauth2.Config
 }
+
+
+func NewInstagram(clientKey, clientSecret string, debug bool) IFacebook {
+	s := &igService{
+		restClient:   resty.New(),
+		debug:        debug,
+		clientKey:    clientKey,
+		clientSecret: clientSecret,
+	}
+	return s
+}
+
+func (s *igService) SetAccessToken(token string) {
+	s.accessToken = token
+}
+
+func (s *igService) GetAccessToken() string {
+	return s.accessToken
+}
