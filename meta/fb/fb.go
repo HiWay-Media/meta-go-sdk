@@ -2,17 +2,28 @@ package fb
 
 import (
 	"github.com/HiWay-Media/meta-go-sdk/meta"
+	"github.com/go-resty/resty/v2"
+	"golang.org/x/oauth2"
 )
 
 type IFacebook interface {
+	meta.IMeta
 }
 
 type fbService struct {
-	*meta.Meta
+	restClient   *resty.Client
+	debug        bool
+	clientKey    string
+	clientSecret string
+	accessToken  string
+	OAuth2Config *oauth2.Config
 }
 
 func NewFacebook(clientKey, clientSecret string, debug bool) IFacebook {
 	return &fbService{
-		Meta: meta.NewMeta(clientKey, clientSecret, debug),
+		restClient:   resty.New(),
+		debug:        debug,
+		clientKey:    clientKey,
+		clientSecret: clientSecret,
 	}
 }
