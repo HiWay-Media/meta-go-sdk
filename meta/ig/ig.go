@@ -20,7 +20,7 @@ type igService struct {
 }
 
 
-func NewInstagram(clientKey, clientSecret string, debug bool) IFacebook {
+func NewInstagram(clientKey, clientSecret string, debug bool) IInstagram {
 	s := &igService{
 		restClient:   resty.New(),
 		debug:        debug,

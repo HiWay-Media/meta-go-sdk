@@ -11,6 +11,6 @@ var Endpoint = oauth2.Endpoint{
 }
 
 
-func (s *fbService) CodeAuthUrl(state string, opts ...oauth2.AuthCodeOption) string {
+func (s *igService) CodeAuthUrl(state string, opts ...oauth2.AuthCodeOption) string {
 	return s.OAuth2Config.AuthCodeURL(state, opts...)
 }
