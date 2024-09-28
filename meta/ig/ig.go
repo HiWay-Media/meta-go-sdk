@@ -8,6 +8,7 @@ import (
 
 type IInstagram interface {
 	meta.IMeta
+	//UploadMedia
 }
 
 type igService struct {
