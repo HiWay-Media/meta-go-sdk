@@ -20,10 +20,19 @@ type fbService struct {
 }
 
 func NewFacebook(clientKey, clientSecret string, debug bool) IFacebook {
-	return &fbService{
+	s := &fbService{
 		restClient:   resty.New(),
 		debug:        debug,
 		clientKey:    clientKey,
 		clientSecret: clientSecret,
 	}
+	return s
+}
+
+func (s *fbService) SetAccessToken(token string) {
+	s.accessToken = token
+}
+
+func (s *fbService) GetAccessToken() string {
+	return s.accessToken
 }
