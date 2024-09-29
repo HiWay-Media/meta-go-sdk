@@ -15,7 +15,7 @@ curl -X POST "https://graph.instagram.com/v20.0/17841400008460056/media_publish"
 func (s *igService) MediaPublish(igUserId, creationId string) (*MediaPublishResponse, error) {
     body := mediaPublishRequest{CreationId: creationId}
 
-	resp, err := o.restyPost(apiMediaPublishUrl(igUserId), body)
+	resp, err := s.restyPost(apiMediaPublishUrl(igUserId), body)
 	if err != nil {
 		return nil, err
 	}
