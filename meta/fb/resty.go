@@ -1,4 +1,4 @@
-package meta
+package fb
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"github.com/go-resty/resty/v2"
 )
 
-func (o *meta) HealthCheck() error {
+func (o *fbService) HealthCheck() error {
 	resp, err := o.restyPost("/", nil)
 	if err != nil {
 		return err
@@ -18,13 +18,13 @@ func (o *meta) HealthCheck() error {
 	return nil
 }
 
-func (o *meta) IsDebug() bool {
+func (o *fbService) IsDebug() bool {
 	return o.debug
 }
 
 // Resty Methods
 
-func (o *meta) restyPost(url string, body interface{}) (*resty.Response, error) {
+func (o *fbService) restyPost(url string, body interface{}) (*resty.Response, error) {
 	resp, err := o.restClient.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "application/json").
@@ -38,7 +38,7 @@ func (o *meta) restyPost(url string, body interface{}) (*resty.Response, error) 
 	return resp, nil
 }
 
-func (o *meta) restyPostFormUrlEncoded(url string, data map[string]string) (*resty.Response, error) {
+func (o *fbService) restyPostFormUrlEncoded(url string, data map[string]string) (*resty.Response, error) {
 	resp, err := o.restClient.R().
 		SetHeader("Cache-Control", "no-cache").
 		SetHeader("Content-Type", "application/x-www-form-urlencoded").
@@ -51,7 +51,7 @@ func (o *meta) restyPostFormUrlEncoded(url string, data map[string]string) (*res
 	return resp, nil
 }
 
-func (o *meta) restyPostWithQueryParams(url string, body interface{}, queryParams map[string]string) (*resty.Response, error) {
+func (o *fbService) restyPostWithQueryParams(url string, body interface{}, queryParams map[string]string) (*resty.Response, error) {
 	resp, err := o.restClient.R().
 		SetHeader("Accept", "application/json").
 		SetHeader("Content-Type", "application/json").
@@ -66,7 +66,7 @@ func (o *meta) restyPostWithQueryParams(url string, body interface{}, queryParam
 	return resp, nil
 }
 
-func (o *meta) restyGet(url string, queryParams map[string]string) (*resty.Response, error) {
+func (o *fbService) restyGet(url string, queryParams map[string]string) (*resty.Response, error) {
 	resp, err := o.restClient.R().
 		SetHeader("Authorization", "Bearer "+o.accessToken).
 		SetQueryParams(queryParams).
@@ -78,7 +78,7 @@ func (o *meta) restyGet(url string, queryParams map[string]string) (*resty.Respo
 	return resp, nil
 }
 
-func (o *meta) debugPrint(data ...interface{}) {
+func (o *fbService) debugPrint(data ...interface{}) {
 	if o.debug {
 		log.Println(data...)
 	}
