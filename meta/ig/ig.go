@@ -9,6 +9,7 @@ import (
 type IInstagram interface {
 	meta.IMeta
 	//UploadMedia
+	MediaPublish(igUserId, creationId string) (*MediaPublishResponse, error)
 }
 
 type igService struct {
