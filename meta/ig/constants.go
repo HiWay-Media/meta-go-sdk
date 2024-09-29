@@ -3,7 +3,7 @@ package ig
 import "fmt"
 
 const (
-    BASE_URL = "https://graph.instagram.com/"
+    BASE_URL = "https://graph.instagram.com"
     VERSION = "20.0"
 )
 
@@ -19,4 +19,9 @@ func apiUploadMediaUrl(igUserId string) string {
 // POST /{ig-user-id}/media_publish — publish uploaded media using their media containers.
 func apiMediaPublishUrl(igUserId string) string {
     return fmt.Sprintf("%s/%s/%s/media_publish", BASE_URL, VERSION, igUserId)
+}
+
+// <IG_CONTAINER_ID>?fields=status_code — check media container publishing eligibility and status.
+func apiCheckMediaUrl(igUserId string) string {
+    return fmt.Sprintf("%s/%s/%s/fields=status_code", BASE_URL, VERSION, igUserId)
 }

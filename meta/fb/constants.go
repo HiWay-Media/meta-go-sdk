@@ -1,5 +1,6 @@
 package fb
 
 const (
-    BASE_URL = ""
+    BASE_URL = "https://graph.facebook.com"
+    VERSION = "20.0"
 )

@@ -8,5 +8,12 @@ const (
 	STORIES MediaType 	    = "STORIES"
 )
 
-
-
+// CheckMediaType checks if the given string matches any MediaType
+func CheckMediaType(mType string) bool {
+	switch MediaType(mType) {
+	case CAROUSEL, REELS, STORIES:
+		return true
+	default:
+		return false
+	}
+}
