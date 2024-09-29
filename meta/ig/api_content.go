@@ -26,6 +26,6 @@ func (s *igService) MediaPublish(igUserId, creationId string) (*MediaPublishResp
 	if err := json.Unmarshal(resp.Body(), &obj); err != nil {
 		return nil, err
 	}
-	o.debugPrint(obj)
+	s.debugPrint(obj)
 	return &obj, nil
 }
