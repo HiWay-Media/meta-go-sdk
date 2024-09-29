@@ -17,11 +17,11 @@ func (s *igService) UploadMedia(igUserId string, videoUrl, imageUrl *string, cap
         Caption: caption,
     }
     if videoUrl != nil {
-        body.VideoUrl = videoUrl
+        body.VideoUrl = *videoUrl
         body.MediaType = "VIDEO"
     }
     if imageUrl != nil {
-        body.ImageUrl = imageUrl
+        body.ImageUrl = *imageUrl
     }
     resp, err := s.restyPost(apiUploadMediaUrl(igUserId), body)
 	if err != nil {
