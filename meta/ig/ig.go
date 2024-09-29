@@ -8,7 +8,7 @@ import (
 
 type IInstagram interface {
 	meta.IMeta
-	//UploadMedia
+	UploadMedia(igUserId string, videoUrl, imageUrl *string, caption string ) (*MediaPublishResponse, error)
 	MediaPublish(igUserId, creationId string) (*MediaPublishResponse, error)
 }
 
