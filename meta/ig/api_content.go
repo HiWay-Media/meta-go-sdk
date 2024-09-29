@@ -28,7 +28,7 @@ func (s *igService) UploadMedia(igUserId string, videoUrl, imageUrl *string, cap
 		return nil, err
 	}
 	if resp.IsError() {
-		return nil, fmt.Errorf("creator info error %s", resp.String())
+		return nil, fmt.Errorf("UploadMedia error %s", resp.String())
 	}
     var obj MediaPublishResponse
 	if err := json.Unmarshal(resp.Body(), &obj); err != nil {
@@ -53,7 +53,7 @@ func (s *igService) MediaPublish(igUserId, creationId string) (*MediaPublishResp
 		return nil, err
 	}
 	if resp.IsError() {
-		return nil, fmt.Errorf("creator info error %s", resp.String())
+		return nil, fmt.Errorf("MediaPublish error %s", resp.String())
 	}
     var obj MediaPublishResponse
 	if err := json.Unmarshal(resp.Body(), &obj); err != nil {
