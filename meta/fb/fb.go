@@ -20,14 +20,16 @@ type fbService struct {
 	OAuth2Config *oauth2.Config
 }
 
-func NewFacebook(clientKey, clientSecret string, debug bool) IFacebook {
+func NewFacebook(clientKey, clientSecret string, debug bool) (IFacebook, error) {
 	s := &fbService{
 		restClient:   resty.New(),
 		debug:        debug,
 		clientKey:    clientKey,
 		clientSecret: clientSecret,
 	}
-	return s
+	s.restClient.SetDebug(debug)
+	//s.restClient.SetBaseURL(BASE_URL)
+	return s, nil
 }
 
 func (s *fbService) SetAccessToken(token string) {

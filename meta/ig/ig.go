@@ -22,15 +22,15 @@ type igService struct {
 	OAuth2Config *oauth2.Config
 }
 
-
-func NewInstagram(clientKey, clientSecret string, debug bool) IInstagram {
+func NewInstagram(clientKey, clientSecret string, debug bool) (IInstagram, error) {
 	s := &igService{
 		restClient:   resty.New(),
 		debug:        debug,
 		clientKey:    clientKey,
 		clientSecret: clientSecret,
 	}
-	return s
+	s.restClient.SetDebug(debug)
+	return s, nil
 }
 
 func (s *igService) SetAccessToken(token string) {
