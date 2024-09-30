@@ -4,7 +4,7 @@ import "fmt"
 
 const (
     BASE_URL = "https://graph.instagram.com"
-    VERSION = "20.0"
+    VERSION = "v20.0"
 )
 
 /*
