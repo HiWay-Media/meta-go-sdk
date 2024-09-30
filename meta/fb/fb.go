@@ -28,6 +28,12 @@ func NewFacebook(clientKey, clientSecret string, debug bool) (IFacebook, error) 
 		clientSecret: clientSecret,
 	}
 	s.restClient.SetDebug(debug)
+	// 
+	s.OAuth2Config = &oauth2.Config{
+		ClientID:     clientKey,
+		ClientSecret: clientSecret,
+		Endpoint:     Endpoint,
+	}
 	//s.restClient.SetBaseURL(BASE_URL)
 	return s, nil
 }
