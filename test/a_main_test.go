@@ -1,7 +1,6 @@
 package test
 
 import (
-	"log"
 	"os"
 	"testing"
 
@@ -20,7 +19,7 @@ func TestMain(m *testing.M) {
 	m.Run()
 }
 
-func GetIG() (ig.IInstagram, error) {ù
+func GetIG() (ig.IInstagram, error) {
     //
 	clientKey       := os.Getenv("CLIENT_KEY")
 	clientSecret    := os.Getenv("CLIENT_SECRET")
