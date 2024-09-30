@@ -8,3 +8,15 @@ package ig
 type MediaPublishResponse struct {
     ID  string `json:"id"`
 }
+
+
+/*
+{
+  "status_code": "FINISHED",
+  "id": "17889615691921648"
+}
+*/
+type CheckMediaStatusResponse struct {
+  ID          string `json:"id"`
+  StatusCode  string `json:"status_code"`
+}

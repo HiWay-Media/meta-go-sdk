@@ -17,11 +17,12 @@ func (s *igService) UploadMedia(igUserId string, videoUrl, imageUrl *string, cap
         Caption: caption,
     }
     if videoUrl != nil {
-        body.VideoUrl = *videoUrl
-        body.MediaType = "VIDEO"
+        body.VideoUrl   = *videoUrl
+        body.MediaType  = "VIDEO"
     }
     if imageUrl != nil {
-        body.ImageUrl = *imageUrl
+        body.ImageUrl       = *imageUrl
+        body.IsCarouselItem = "true"
     }
     resp, err := s.restyPost(apiUploadMediaUrl(igUserId), body)
 	if err != nil {
@@ -61,4 +62,30 @@ func (s *igService) MediaPublish(igUserId, creationId string) (*MediaPublishResp
 	}
 	s.debugPrint(obj)
 	return &obj, nil
+}
+
+/*
+Sintassi della richiesta
+GET <HOST_URL>/<API_VERSION>/<IG_CONTAINER_ID>
+  ?fields=<LIST_OF_FIELDS>
+  &access_token=<ACCESS_TOKEN>
+*/
+func (s *igService) CheckStatus(containerId string) (*CheckMediaStatusResponse, error) {
+    queryParams := map[string]string{
+        "access_token": s.accessToken,
+	}
+    resp, err := s.restyGet(apiCheckMediaUrl(containerId), queryParams)
+	if err != nil {
+		return nil, err
+	}
+	if resp.IsError() {
+		return nil, fmt.Errorf("CheckStatus error %s", resp.String())
+	}
+    var obj CheckMediaStatusResponse
+	if err := json.Unmarshal(resp.Body(), &obj); err != nil {
+		return nil, err
+	}
+	s.debugPrint(obj)
+	return &obj, nil
+    
 }
