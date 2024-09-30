@@ -27,9 +27,9 @@ func NewFacebook(clientKey, clientSecret string, debug bool) (IFacebook, error) 
 		clientKey:    clientKey,
 		clientSecret: clientSecret,
 	}
-	s.restClient.SetDebug(isDebug)
+	s.restClient.SetDebug(debug)
 	//s.restClient.SetBaseURL(BASE_URL)
-	return s
+	return s, nil
 }
 
 func (s *fbService) SetAccessToken(token string) {
