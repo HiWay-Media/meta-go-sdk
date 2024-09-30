@@ -8,6 +8,7 @@ import (
 
 type IFacebook interface {
 	meta.IMeta
+	UploadMedia(fileUrl, pageId, title, description string) (*UploadMediaResponse, error)
 }
 
 type fbService struct {
