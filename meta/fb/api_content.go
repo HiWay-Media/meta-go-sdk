@@ -23,11 +23,12 @@ In caso di azione eseguita correttamente, l'app riceve una risposta JSON con l'I
 	}
 */
 func (s *fbService) UploadMedia(fileUrl, pageId, title, description string) (*UploadMediaResponse, error) {
-	params := make(map[string]string)
-	params["access_token"] = s.accessToken
-	params["title"] = title
-	params["description"] = description
-	params["file_url"] = fileUrl
+	params := &mediaBodyRequest{
+        AccessToken:        s.accessToken,
+        Title:              title,
+        Description:        description,
+        FileUrl:            fileUrl,
+    }
 	//
 	resp, err := s.restyPostWithQueryParams(apiUploadMediaUrl(pageId), nil, params)
 	if err != nil {
