@@ -74,7 +74,7 @@ func (s *igService) CheckStatus(containerId string) (*CheckMediaStatusResponse, 
     queryParams := map[string]string{
         "access_token": s.accessToken,
 	}
-    resp, err := s.restyGet(apiCheckMediaUrl(igUserId), queryParams)
+    resp, err := s.restyGet(apiCheckMediaUrl(containerId), queryParams)
 	if err != nil {
 		return nil, err
 	}

@@ -7,7 +7,6 @@ type MediaRequest struct {
     MediaType           string `json:"media_type,omitempty"`
     ImageUrl            string `json:"image_url,omitempty"`
     VideoUrl            string `json:"video_url,omitempty"`
-    CoverUrl            string `json:"cover_url,omitempty"`   
 }
 
 type mediaPublishRequest struct {
