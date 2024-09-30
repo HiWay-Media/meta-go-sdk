@@ -10,6 +10,7 @@ type IInstagram interface {
 	meta.IMeta
 	UploadMedia(igUserId string, videoUrl, imageUrl *string, caption string ) (*MediaPublishResponse, error)
 	MediaPublish(igUserId, creationId string) (*MediaPublishResponse, error)
+	CheckStatus(containerId string) (*CheckMediaStatusResponse, error)
 }
 
 type igService struct {

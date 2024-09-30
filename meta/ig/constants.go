@@ -22,6 +22,6 @@ func apiMediaPublishUrl(igUserId string) string {
 }
 
 // <IG_CONTAINER_ID>?fields=status_code — check media container publishing eligibility and status.
-func apiCheckMediaUrl(igUserId string) string {
-    return fmt.Sprintf("%s/%s/%s/fields=status_code", BASE_URL, VERSION, igUserId)
+func apiCheckMediaUrl(containerId string) string {
+    return fmt.Sprintf("%s/%s/%s/fields=status_code", BASE_URL, VERSION, containerId)
 }
