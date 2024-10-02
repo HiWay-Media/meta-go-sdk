@@ -30,6 +30,12 @@ func NewInstagram(clientKey, clientSecret string, debug bool) (IInstagram, error
 		clientSecret: clientSecret,
 	}
 	s.restClient.SetDebug(debug)
+	//
+	s.OAuth2Config = &oauth2.Config{
+		ClientID:     clientKey,
+		ClientSecret: clientSecret,
+		Endpoint:     Endpoint,
+	}
 	return s, nil
 }
 

@@ -1,6 +1,7 @@
 package fb
 
 import (
+	"context"
 	"golang.org/x/oauth2"
 )
 
@@ -12,4 +13,8 @@ var Endpoint = oauth2.Endpoint{
 
 func (s *fbService) CodeAuthUrl(state string, opts ...oauth2.AuthCodeOption) string {
 	return s.OAuth2Config.AuthCodeURL(state, opts...)
+}
+
+func (s *fbService) ExchangeCode(code string)  (*oauth2.Token, error) {
+	return s.OAuth2Config.Exchange(context.Background(), code)
 }

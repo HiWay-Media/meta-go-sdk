@@ -1,6 +1,7 @@
 package ig
 
 import (
+	"context"
 	"golang.org/x/oauth2"
 )
 
@@ -31,4 +32,8 @@ func (s *igService) AuthUrl() string {
 			"business_basic,business_content_publish,business_manage_comments,business_manage_messages",
 		),
 	)
+}
+
+func (s *igService) ExchangeCode(code string)  (*oauth2.Token, error) {
+	return s.OAuth2Config.Exchange(context.Background(), code)
 }

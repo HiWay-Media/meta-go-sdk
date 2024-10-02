@@ -1,5 +1,6 @@
 # meta-go-sdk
 [![Go build](https://github.com/HiWay-Media/meta-go-sdk/actions/workflows/go-build.yml/badge.svg)](https://github.com/HiWay-Media/meta-go-sdk/actions/workflows/go-build.yml)
+[![Go test workflow](https://github.com/HiWay-Media/meta-go-sdk/actions/workflows/go-test.yml/badge.svg)](https://github.com/HiWay-Media/meta-go-sdk/actions/workflows/go-test.yml)
 
 A Go SDK for interacting with Meta's (Facebook, Instagram) APIs. This SDK simplifies API requests and responses for integration with Meta services.
 
