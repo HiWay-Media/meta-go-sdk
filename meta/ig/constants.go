@@ -25,3 +25,10 @@ func apiMediaPublishUrl(igUserId string) string {
 func apiCheckMediaUrl(containerId string) string {
     return fmt.Sprintf("%s/%s/%s/fields=status_code", BASE_URL, VERSION, containerId)
 }
+
+/*
+GET /<IG_USER_ID>/content_publishing_limit
+*/
+func apiContentPublishingLimit(igUserId string) string {
+    return fmt.Sprintf("%s/%s/%s/content_publishing_limit", BASE_URL, VERSION, igUserId)
+}

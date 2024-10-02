@@ -89,3 +89,16 @@ func (s *igService) CheckStatus(containerId string) (*CheckMediaStatusResponse, 
 	return &obj, nil
     
 }
+
+/*
+Get the number of times an IG User has published and IG Container within a given time period. Refer to the Content Publishing guide for complete publishing steps.
+
+Request Syntax
+GET https://graph.instagram.com/&lt;API_VERSION>/&lt;IG_USER_ID>/content_publishing_limit
+  ?fields=&lt;LIST_OF_FIELDS>
+  &since=&lt;UNIX_TIMESTAMP>
+  &access_token=&lt;ACCESS_TOKEN>
+*/
+func (s *igService) ContentPublishingLimit(igUserId string) {
+	
+}
