@@ -10,5 +10,6 @@ type IMeta interface {
 	CodeAuthUrl(state string, opts ...oauth2.AuthCodeOption) string
 	SetAccessToken(token string)
 	GetAccessToken() string
+	ExchangeCode(code string) (*oauth2.Token, error)
 	//
 }
